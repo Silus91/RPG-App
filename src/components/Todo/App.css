@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  text-align: center;
+  justify-self: center;
+  flex-direction: column;
+}
+
+.container {
+  border: 2px solid rgb(24, 202, 193);
+  width:500px;
+  height: 700px;
+  background: rgb(182, 184, 180);
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+}
+.ulApp{
+  padding-inline-start: 0px !important;
+}

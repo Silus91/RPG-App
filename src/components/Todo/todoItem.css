@@ -1,0 +1,26 @@
+.removeTodoButton{
+    background: rgba(35, 114, 206, 0.918);
+    border-radius: 4px;
+    border:none;
+    cursor:pointer;
+    height: 50%;
+
+}
+
+.todoItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items:center;
+    position: static;
+    max-width: 300px;
+    margin-left:auto;
+    margin-right:auto;
+    border-bottom: 1px solid rgb(130, 231, 14);
+    border-top:1px solid rgb(117, 58, 68);
+    margin-top:5px;
+
+}
+.todoiItemParagraph{
+    text-transform: capitalize;
+}
