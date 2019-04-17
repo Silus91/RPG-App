@@ -1,7 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-const webpack = require('webpack');
 const devMode = process.env.NODE_ENV !== 'production'
 
 const config = {
@@ -9,10 +7,6 @@ const config = {
   entry: {
     globalStyles: ['./src/resources/styles/global.css'],
     index: ['./src/index'],
-  },
-  output: {
-    filename: "[name].[hash].js",
-    path: __dirname + "/../public/front",
   },
   devServer: {
     inline: true,
@@ -30,7 +24,7 @@ const config = {
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", "jsx", ".json"]
   },
 
   module: {
@@ -95,25 +89,5 @@ const config = {
     }),
   ],
 };
-
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(new webpack.DefinePlugin({
-    "process.env": {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      ACCESS_TOKEN: JSON.stringify(process.env.ACCESS_TOKEN),
-      GRAPH_API: JSON.stringify(process.env.GRAPH_API),
-      POSTS_API_ENABLED: JSON.stringify(process.env.POSTS_API_ENABLED),
-      API_BASE_V1: JSON.stringify(process.env.API_BASE_V1),
-      MAPS_API_KEY: JSON.stringify(process.env.MAPS_API_KEY),
-    }
-  }));
-} else {
-  config.plugins.push(new Dotenv());
-  config.plugins.push(new webpack.DefinePlugin({
-    "process.env": {
-      NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'dev'),
-    }
-  }));
-}
 
 module.exports = config;
