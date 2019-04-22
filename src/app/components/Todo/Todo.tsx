@@ -1,7 +1,10 @@
 import  * as React from 'react';
-import './App.css';
+const styles = require('./Todo.css');
 import TodoInput from './todoinput';
 import TodoItem from './todoItem';
+import addActionTodo from './../../actions/index';
+import {bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class Todo extends React.Component<any, any> {
   constructor(props:any) {
@@ -34,14 +37,18 @@ class Todo extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="App">
-            <button onClick={this.onNavigateHome}>Return</button>
-        <div className="container">
+      <div className={styles.app}>
+        <button  className={styles.button} onClick={this.onNavigateHome}>Return</button>
+        <div className={styles.container}>
           <h1> Quests!</h1>
-          <TodoInput todoText="" addTodo={this.addTodo}/>
-          <ul className="ulApp">
+          <TodoInput
+            todoText=""
+            addTodo={this.addTodo}
+            onClick={()=>this.props.addActionTodo(Todo)}
+          />
+          <ul className={styles.ulApp}>
             {this.state.todos.map((todo) => {
-              return(
+              return (
                 <TodoItem
                   todo={todo}
                   key={todo.id}
@@ -57,4 +64,8 @@ class Todo extends React.Component<any, any> {
   }
 }
 
-export default Todo;
+function matchDispatchToProps (dispatch:any) {
+  return bindActionCreators({addActionTodo: addActionTodo}, dispatch)
+}
+
+export default connect (matchDispatchToProps)(Todo);

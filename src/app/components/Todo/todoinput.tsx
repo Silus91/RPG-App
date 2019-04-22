@@ -1,5 +1,5 @@
 import  * as React from 'react';
-import './todoInput.css';
+const styles = require('./todoInput.css');
 
 class TodoInput extends React.Component<any, any> {
   constructor(props:any) {
@@ -24,14 +24,14 @@ class TodoInput extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="inputContainer">
+      <div className={styles.inputContainer}>
         <input
-          className="todoInput"
+          className={styles.todoInput}
           type="text"
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <button className="todoButton" onClick={() => this.addTodo(this.state.value)}>
+        <button className={styles.todoButton} onClick={() => this.addTodo(this.state.value)}>
           Submit
         </button>
       </div>

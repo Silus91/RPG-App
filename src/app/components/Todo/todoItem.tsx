@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './todoItem.css';
+const styles = require('./todoItem.css');
 
 class TodoItem extends React.Component<any, any> {
 
@@ -9,13 +9,13 @@ class TodoItem extends React.Component<any, any> {
 
   render() {
     return(
-    <div className="todoItem">
+    <div className={styles.todoItem}>
             <div
-              className="todoiItemParagraph"
+              className={styles.todoiItemParagraph}
             >
               {this.props.todo.text}
             </div>
-        <button className="removeTodoButton" onClick={() => this.removeTodo(this.props.id)}>
+        <button className={styles.removeTodoButton} onClick={() => this.removeTodo(this.props.id)}>
           Remove
         </button>
     </div>

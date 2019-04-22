@@ -1,18 +1,19 @@
 import * as React from 'react';
+const styles = require('./Home.css');
 
-const Navbar = () => {
+const Home = () => {
   return (
-    <nav className="nav-wrapper">
-      <div className="App">
-        <p> RPG Helper!</p>
+    <div className={styles.container}>
+      <div className={styles.app}>
+        <h1> RPG Helper!</h1>
         <ul>
           <li><a href={'/dice'}>Dice</a></li>
           <li><a href={'/todo'}>Todo</a></li>
           <li><a href={'/profile'}>Profile</a></li>
         </ul>
       </div>
-    </nav>
+    </div>
   );
 };
 
-export default Navbar;
+export default Home;

@@ -1,4 +1,6 @@
 import * as React from 'react';
+const styles = require('./Profile.css');
+
 
 class Profile extends React.PureComponent<any, any> {
   constructor(props:any) {
@@ -28,6 +30,7 @@ class Profile extends React.PureComponent<any, any> {
         target: e
       },
     });
+    console.log(this.state);
   }
 
   statsRender() {
@@ -54,22 +57,59 @@ class Profile extends React.PureComponent<any, any> {
 
   render() {
     return (
-      <div className="App">
-            <button onClick={this.onNavigateHome}>Return</button>
-        <h1>Beggining kurwa</h1>
+      <div className={styles.app}>
+        <button onClick={this.onNavigateHome}>Return</button>
         <div>
-          Hp={this.state.hp}
+          <h1>Profile Stats!</h1>
+          <div>
+            Hp={this.state.hp}
+          </div>
+          <div>
+            Exp={this.state.exp}
+          </div>
+          <div>
+            Gold={this.state.gold}
+          </div>
+          {this.statsRender()}
         </div>
-        <div>
-          Exp={this.state.exp}
-        </div>
-        <div>
-          Gold={this.state.gold}
-        </div>
-        {this.statsRender()}
       </div>
     );
   }
 }
 
 export default Profile;
+
+
+// this.handleChange = this.handleChange.bind(this);
+// this.addTodo = this.addTodo.bind(this);
+// }
+
+// state = { value: '' };
+
+// handleChange(e:any) {
+// this.setState({ value: e.target.value });
+// }
+
+// addTodo(todo:string) {
+// if (
+//   todo.length > 0) {
+//   this.props.addTodo(todo);
+//   this.setState({ value: '' });
+// }
+// }
+
+// render() {
+// return (
+//   <div className={styles.inputContainer}>
+//     <input
+//       className={styles.todoInput}
+//       type="text"
+//       value={this.state.value}
+//       onChange={this.handleChange}
+//     />
+//     <button className={styles.todoButton} onClick={() => this.addTodo(this.state.value)}>
+//       Submit
+//     </button>
+//   </div>
+// );
+// }
