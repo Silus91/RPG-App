@@ -1,75 +1,72 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { StateInterface } from 'app/reducers';
+import { RouteComponentProps } from 'react-router';
+import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import { changeStat } from '../../actions';
 const styles = require('./Profile.css');
 
+const profile = new Set<string>(['hp', 'exp', 'gold']);
 
-class Profile extends React.PureComponent<any, any> {
+interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
+  profile: {[key:string]:number};
+  changeStat: (stat:{[stat:string]:number}) => void;
+}
+
+class Profile extends React.Component<ProfileInterface, any> {
   constructor(props:any) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  state:any = {
-    profile:{
-      hp: null,
-      exp: null,
-      gold: null,
-    },
-  };
 
   handleChange = (e:any) => {
     this.setState({
-      [e.target.id]: e.target.value,
+      ...this.props.profile,
+      [e.target.id]:e.target.value
     });
   }
 
-  handleSubmit = (e:any) => {
-    this.setState({
-      profile: {
-        ...this.state.profile,
-        target: e
-      },
-    });
-    console.log(this.state);
+  handleSubmit(values:any){
+    const { reset,changeStat } = this.props;
+    console.log(values);
+    changeStat(values);
+    reset();
   }
 
   statsRender() {
-    return (
-      <div>
-        <label>Hp</label>
-        <input type="text" id="hp" value={this.state.value} onChange={this.handleChange}/>
-        <button onClick={() => this.handleSubmit(this.state.value)}>Submit</button>
+    const { handleSubmit } = this.props;
+
+    return Array.from(profile).map((stat, index) => (
+      <React.Fragment key={index}>
+        <label>{stat}</label>
+        <Field name={stat} component="input" type="text" />
+        <button onClick={handleSubmit(this.handleSubmit)}>Submit</button>
         <br />
-        <label>Exp</label>
-        <input type="text" id="exp" value={this.state.value} onChange={this.handleChange}/>
-        <button onClick={() => this.handleSubmit(this.state.value)}>Submit</button>
-        <br />
-        <label>Gold</label>
-        <input type="text" id="gold" value={this.state.value} onChange={this.handleChange}/>
-        <button onClick={() => this.handleSubmit(this.state.value)}>Submit</button>
-      </div>
-    );
+      </React.Fragment>
+    ));
   }
 
   onNavigateHome = () => {
     this.props.history.push("/");
   }
 
+
+  renderHeaders() {
+    return Array.from(profile).map((stat, index) => (
+      <div key={index}>
+        {stat}={this.props.profile[stat]}
+      </div>
+      ));
+  }
   render() {
     return (
       <div className={styles.app}>
         <button onClick={this.onNavigateHome}>Return</button>
         <div>
           <h1>Profile Stats!</h1>
-          <div>
-            Hp={this.state.hp}
-          </div>
-          <div>
-            Exp={this.state.exp}
-          </div>
-          <div>
-            Gold={this.state.gold}
-          </div>
+          {this.renderHeaders()}
           {this.statsRender()}
         </div>
       </div>
@@ -77,39 +74,10 @@ class Profile extends React.PureComponent<any, any> {
   }
 }
 
-export default Profile;
+function mapStateToProps(state:StateInterface){
+  return {
+    profile: state.profile
+  }
+}
 
-
-// this.handleChange = this.handleChange.bind(this);
-// this.addTodo = this.addTodo.bind(this);
-// }
-
-// state = { value: '' };
-
-// handleChange(e:any) {
-// this.setState({ value: e.target.value });
-// }
-
-// addTodo(todo:string) {
-// if (
-//   todo.length > 0) {
-//   this.props.addTodo(todo);
-//   this.setState({ value: '' });
-// }
-// }
-
-// render() {
-// return (
-//   <div className={styles.inputContainer}>
-//     <input
-//       className={styles.todoInput}
-//       type="text"
-//       value={this.state.value}
-//       onChange={this.handleChange}
-//     />
-//     <button className={styles.todoButton} onClick={() => this.addTodo(this.state.value)}>
-//       Submit
-//     </button>
-//   </div>
-// );
-// }
+export default reduxForm<any,any> ({form:'profileForm'}) (connect (mapStateToProps, {changeStat}) (Profile));

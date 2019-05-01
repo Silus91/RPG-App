@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@types/react-router-dom": "^4.3.2",
+    "@types/redux-form": "^8.1.1",
     "classnames": "^2.2.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
@@ -65,6 +66,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
-    "redux-actions": "^2.6.4"
+    "redux-actions": "^2.6.4",
+    "redux-form": "^8.2.0"
   }
 }

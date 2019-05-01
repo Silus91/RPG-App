@@ -2,9 +2,9 @@ import  * as React from 'react';
 const styles = require('./Todo.css');
 import TodoInput from './todoinput';
 import TodoItem from './todoItem';
-import addActionTodo from './../../actions/index';
-import {bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+// import addActionTodo from './../../actions/index';
+// import {bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
 
 class Todo extends React.Component<any, any> {
   constructor(props:any) {
@@ -64,8 +64,8 @@ class Todo extends React.Component<any, any> {
   }
 }
 
-function matchDispatchToProps (dispatch:any) {
-  return bindActionCreators({addActionTodo: addActionTodo}, dispatch)
-}
+// function matchDispatchToProps (dispatch:any) {
+//   return bindActionCreators({addActionTodo: addActionTodo}, dispatch)
+// }
 
-export default connect (matchDispatchToProps)(Todo);
+export default Todo;
