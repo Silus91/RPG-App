@@ -10,10 +10,8 @@ class TodoItem extends React.Component<any, any> {
   render() {
     return(
     <div className={styles.todoItem}>
-            <div
-              className={styles.todoiItemParagraph}
-            >
-              {this.props.todo.text}
+            <div className={styles.todoiItemParagraph}>
+              {this.props.todo.name}
             </div>
         <button className={styles.removeTodoButton} onClick={() => this.removeTodo(this.props.id)}>
           Remove

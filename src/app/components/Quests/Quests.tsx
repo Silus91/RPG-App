@@ -2,26 +2,35 @@ import  * as React from 'react';
 const styles = require('./Todo.css');
 import TodoInput from './todoinput';
 import TodoItem from './todoItem';
-import addActionTodo from './../../actions/index';
-import {bindActionCreators } from 'redux';
+import { addTodo } from '../../actions/todos';
 import { connect } from 'react-redux';
+import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import { RouteComponentProps } from 'react-router';
+import { StateInterface } from 'app/reducers';
 
-class Todo extends React.Component<any, any> {
+
+interface QuestsInterface extends RouteComponentProps, InjectedFormProps {
+  addTodo: (value: string) => void;
+  history:any;
+}
+
+
+class Quests extends React.Component<QuestsInterface, any> {
   constructor(props:any) {
     super(props);
-    this.addTodo = this.addTodo.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
   }
 
   state = {
     todos: [
-      { id:1, text:'Questes to be done!' },
+      { id:1, name:'Questes to be done!' },
     ], nextId:2,
   };
 
-  addTodo(todoText:string) {
+  handleSubmit(todoText:string) {
     const todos = this.state.todos.slice();
-    todos.push({ id: this.state.nextId, text: todoText });
+    todos.push({ id: this.state.nextId, name: todoText });
     this.setState({ todos: todos, nextId: ++this.state.nextId });
   }
 
@@ -43,11 +52,10 @@ class Todo extends React.Component<any, any> {
           <h1> Quests!</h1>
           <TodoInput
             todoText=""
-            addTodo={this.addTodo}
-            onClick={()=>this.props.addActionTodo(Todo)}
+            handleSubmit={this.handleSubmit}
           />
           <ul className={styles.ulApp}>
-            {this.state.todos.map((todo) => {
+            {this.state.todos.map((todo:any) => {
               return (
                 <TodoItem
                   todo={todo}
@@ -64,8 +72,8 @@ class Todo extends React.Component<any, any> {
   }
 }
 
-function matchDispatchToProps (dispatch:any) {
-  return bindActionCreators({addActionTodo: addActionTodo}, dispatch)
+ function mapStateToProps (state:StateInterface) {
+  todos: state.todos
 }
 
-export default connect (matchDispatchToProps)(Todo);
+export default connect(mapStateToProps, {handleSubmit: addTodo})(Quests);

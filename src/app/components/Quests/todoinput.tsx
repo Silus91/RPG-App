@@ -5,7 +5,7 @@ class TodoInput extends React.Component<any, any> {
   constructor(props:any) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.addTodo = this.addTodo.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   state = { value: '' };
@@ -14,10 +14,10 @@ class TodoInput extends React.Component<any, any> {
     this.setState({ value: e.target.value });
   }
 
-  addTodo(todo:string) {
+  handleSubmit(todo:string) {
     if (
       todo.length > 0) {
-      this.props.addTodo(todo);
+      this.props.handleSubmit(todo);
       this.setState({ value: '' });
     }
   }
@@ -31,7 +31,7 @@ class TodoInput extends React.Component<any, any> {
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <button className={styles.todoButton} onClick={() => this.addTodo(this.state.value)}>
+        <button className={styles.todoButton} onClick={() => this.handleSubmit(this.state.value)}>
           Submit
         </button>
       </div>

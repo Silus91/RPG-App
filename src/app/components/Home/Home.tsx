@@ -8,7 +8,7 @@ const Home = () => {
         <h1> RPG Helper!</h1>
         <ul>
           <li><a href={'/dice'}>Dice</a></li>
-          <li><a href={'/todo'}>Todo</a></li>
+          <li><a href={'/quests'}>Quests</a></li>
           <li><a href={'/profile'}>Profile</a></li>
         </ul>
       </div>
