@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import { Router, Switch, Route } from 'react-router'
 import { Provider } from 'react-redux';
 import Dice from './app/components/Dice/Dice';
-import Todo from './app/components/Todo/Todo';
+import Quests from './app/components/Quests/Quests';
 import Profile from './app/components/Profile/Profile';
 import Home from './app/components/Home/Home';
 
@@ -19,7 +19,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/dice" component={Dice} />
-        <Route exact path="/todo" component={Todo} />
+        <Route exact path="/quests" component={Quests} />
         <Route exact path="/" component={Home} />
       </Switch>
     </Router>

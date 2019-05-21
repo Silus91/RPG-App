@@ -10,7 +10,6 @@ export interface StateInterface {
 }
 
  export default combineReducers ({
-  todos: fromTodos.reducer,
   profile: profileReducer,
   form: formReducer
 });
