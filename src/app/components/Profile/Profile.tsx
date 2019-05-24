@@ -5,7 +5,7 @@ import { StateInterface } from 'app/reducers';
 import { RouteComponentProps } from 'react-router';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { changeStat } from '../../actions';
-const styles = require('./Profile.css');
+const styles = require('../../Scss/main.css');
 
 const profile = new Set<string>(['hp', 'exp', 'gold']);
 
@@ -42,7 +42,12 @@ class Profile extends React.Component<ProfileInterface, any> {
       <React.Fragment key={index}>
         <label>{stat}</label>
         <Field name={stat} component="input" type="text" />
-        <button onClick={handleSubmit(this.handleSubmit)}>Submit</button>
+        <button
+          className={styles.button}
+          onClick={() => handleSubmit(this.handleSubmit)}
+        >
+          Submit
+        </button>
         <br />
       </React.Fragment>
     ));
@@ -62,8 +67,13 @@ class Profile extends React.Component<ProfileInterface, any> {
 
   render() {
     return (
-      <div className={styles.app}>
-        <button onClick={this.onNavigateHome}>Return</button>
+      <div className={styles.container}>
+        <button 
+          className={styles.button}
+          onClick={() => this.onNavigateHome}
+        >
+          Return
+        </button>
         <div>
           <h1>Profile Stats!</h1>
           {this.renderHeaders()}

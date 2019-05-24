@@ -3,11 +3,6 @@
     justify-content: center;
 }
 
-.dicer {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
 .dice{
     display: flex;
     justify-content: center;

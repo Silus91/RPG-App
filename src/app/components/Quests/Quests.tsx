@@ -1,5 +1,5 @@
 import  * as React from 'react';
-const styles = require('./Todo.css');
+const styles = require('../../Scss/main.css');
 import TodoInput from './todoinput';
 import TodoItem from './todoItem';
 import { addTodo } from '../../actions/todos';
@@ -46,9 +46,9 @@ class Quests extends React.Component<QuestsInterface, any> {
 
   render() {
     return (
-      <div className={styles.app}>
+      <div className={styles.container}>
         <button  className={styles.button} onClick={this.onNavigateHome}>Return</button>
-        <div className={styles.container}>
+        <div>
           <h1> Quests!</h1>
           <TodoInput
             todoText=""

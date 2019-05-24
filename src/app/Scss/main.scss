@@ -1,1 +1,21 @@
+$colors: (
+    primary:rgb(238, 230, 230),
+    secondary: rgb(44, 39, 39),
+    black:rgb(0,0,0)
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+};
+
+
 @import "button";
+@import "container";
+@import "header";
+@import "li";
+
+
+
+body {
+    background-color: color(primary);
+}

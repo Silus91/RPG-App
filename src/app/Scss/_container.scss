@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(186, 202, 186) ;
+    @media( max-width: 395px) {
+        width: 100%;
+        
+    }
+}
+
+.appContainer{
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    @media( max-width: 395px) {
+        width: 50%;
+        flex-wrap: wrap;
+    }
+}
