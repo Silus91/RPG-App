@@ -13,9 +13,14 @@ $colors: (
 @import "container";
 @import "header";
 @import "li";
-
+@import "input";
+@import "img";
 
 
 body {
     background-color: color(primary);
+}
+
+p {
+    text-transform: capitalize;
 }

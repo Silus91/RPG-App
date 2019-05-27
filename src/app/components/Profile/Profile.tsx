@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { StateInterface } from 'app/reducers';
@@ -14,11 +13,23 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
   changeStat: (stat:{[stat:string]:number}) => void;
 }
 
+const SomeInput = (field:any) => {
+  console.log(field);
+  return( 
+    <div style={field.style}>
+      <input {...field.input}/>
+    </div>
+)}
+
 class Profile extends React.Component<ProfileInterface, any> {
   constructor(props:any) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+  onNavigateHome = () => {
+    this.props.history.push("/");
   }
 
   handleChange = (e:any) => {
@@ -40,21 +51,19 @@ class Profile extends React.Component<ProfileInterface, any> {
 
     return Array.from(profile).map((stat, index) => (
       <React.Fragment key={index}>
-        <label>{stat}</label>
-        <Field name={stat} component="input" type="text" />
-        <button
-          className={styles.button}
-          onClick={() => handleSubmit(this.handleSubmit)}
-        >
-          Submit
-        </button>
-        <br />
+        <div className={styles.statContainer}>
+          <label>{stat}</label>
+          <Field name={stat} component={SomeInput} style={{padding:"16 px"}} type="text"/>
+          <button
+            className={styles.button}
+            onClick={handleSubmit(this.handleSubmit)}
+          >
+            Submit
+          </button>
+          <br />
+        </div>
       </React.Fragment>
     ));
-  }
-
-  onNavigateHome = () => {
-    this.props.history.push("/");
   }
 
   renderHeaders() {
@@ -62,24 +71,29 @@ class Profile extends React.Component<ProfileInterface, any> {
       <div key={index}>
         {stat}={this.props.profile[stat]}
       </div>
-      ));
+    ));
   }
 
   render() {
     return (
       <div className={styles.container}>
-        <button 
+        <button
           className={styles.button}
-          onClick={() => this.onNavigateHome}
+          onClick={this.onNavigateHome}
         >
           Return
         </button>
-        <div>
-          <h1>Profile Stats!</h1>
-          {this.renderHeaders()}
-          {this.statsRender()}
+        <h1>Profile Stats!</h1>
+        <div className={styles.profileContainer}>
+          <div className={styles.headersContainer}>
+            {this.renderHeaders()}
+          </div>
+          <div className={styles.statsContainer}>
+            {this.statsRender()}
+          </div>
         </div>
       </div>
+
     );
   }
 }

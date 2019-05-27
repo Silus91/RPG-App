@@ -46,35 +46,31 @@ class Dice extends React.Component<any, any> {
     return (
       <div className={styles.container}>
         <button onClick={this.onNavigateHome} className={styles.button}>Return</button>
-        <h1>Lets Play!</h1>
-        <div className={styles.appContainer}>
+        <h1>LETS ROLL!</h1>
+        <div className={styles.diceContainer}>
           <div className={styles.dice}>
-            <img  src={require('./DiceD6.png')} style={{width: '70px', height: '70px'}}/>
-            <h3>{this.state.randomD6}</h3>
-            <button onClick={this.throwD6.bind(this)} className={styles.button}>
-              Throw
-            </button>
+            <div onClick={this.throwD6.bind(this)}>
+              <img  src={require('./DiceD6.png')} className={styles.img}/>
+            </div>
+              <h2>{this.state.randomD6}</h2>
           </div>
           <div className={styles.dice}>
-            <img  src={require('./DiceD10.png')} style={{width: '70px', height: '70px'}} />
-            <h3>{this.state.randomD10}</h3>
-            <button onClick={this.throwD10.bind(this)} className={styles.button}>
-              Throw
-            </button>
+            <div onClick={this.throwD10.bind(this)}>
+              <img  src={require('./DiceD10.png')} className={styles.img}/>
+            </div>
+            <h2>{this.state.randomD10}</h2>
           </div>
           <div className={styles.dice}>
-            <img  src={require('./DiceD12.png')} style={{width: '70px', height: '70px'}} />
-            <h3>{this.state.randomD12}</h3>
-            <button onClick={this.throwD12.bind(this)} className={styles.button}>
-              Throw
-            </button>
+            <div onClick={this.throwD12.bind(this)}>
+              <img  src={require('./DiceD12.png')} className={styles.img}/>
+            </div>
+              <h2>{this.state.randomD12}</h2>
           </div>
           <div className={styles.dice}>
-            <img  src={require('./DiceD20.png')} style={{width: '70px', height: '70px'}} />
-            <h3>{this.state.randomD20}</h3>
-            <button onClick={this.throwD20.bind(this)} className={styles.button}>
-              Throw
-            </button>
+            <div onClick={this.throwD20.bind(this)}>
+              <img  src={require('./DiceD20.png')} className={styles.img}/>
+            </div>
+            <h2>{this.state.randomD20}</h2>
           </div>
         </div>
       </div>
