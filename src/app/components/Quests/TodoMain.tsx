@@ -14,7 +14,6 @@ class TodoMain extends React.Component<TodoMainInterface> {
 
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    // this.removeTodo = this.removeTodo.bind(this);
   }
 
   state = {
