@@ -72,8 +72,10 @@ class Quests extends React.Component<QuestsInterface, any> {
   }
 }
 
- function mapStateToProps (state:StateInterface) {
-  todos: state.todos
+function mapStateToProps (state:StateInterface) {
+  return {
+    todos: state.todos
+  }
 }
 
-export default connect(mapStateToProps, {handleSubmit: addTodo})(Quests);
+export default connect(mapStateToProps, { addTodo })(Quests);

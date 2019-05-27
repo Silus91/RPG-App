@@ -1,13 +1,19 @@
 import * as React from 'react';
+import { reduxForm, InjectedFormProps } from 'redux-form';
 
+// import { connect } from 'react-redux';
+//import { StateInterface } from 'app/reducers';
 
+interface TodoMainInterface extends InjectedFormProps {
 
-class TodoMain extends React.Component {
+}
+
+class TodoMain extends React.Component<TodoMainInterface> {
   constructor(props:any){
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     // this.removeTodo = this.removeTodo.bind(this);
   }
 
@@ -18,56 +24,41 @@ class TodoMain extends React.Component {
   };
   
   handleChange = (e:any) => {
-    this.setState({
-      ...this.props.profile,
-      [e.target.id]:e.target.value
-    });
+    // this.setState({
+    //   ...this.state.todos,
+    //   [e.target.id]:e.target.value
+    // });
+    console.log(e);
   }
 
-  handleSubmit(values:any){
-    const { reset,changeStat } = this.props;
-    console.log(values);
-    changeStat(values);
-    reset();
+  onSubmit(value:any){
+    // const { reset,addTodo } = this.props;
+    console.log(value);
+    // addTodo(values);
+    // reset();
   }
 
 
   inputRender(){
+      const { handleSubmit } = this.props;
+
     return(
       <form>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <button  type="submit" onClick={() => this.handleSubmit(this.state.value)}>
+        <input onChange={this.handleChange} type="text"/>
+        <button onClick={handleSubmit(this.onSubmit)}>
           Submit
         </button>
       </form>
     )
   }
 
-  todoRender() {
-    return (
-      <div>
-        <div>
-          {this.props.todo.name}
-        </div>
-        <button onClick={() => this.removeTodo(this.props.id)}>
-          Remove
-        </button>
-      </div>
-    )
-  }
-
-
-  // {this.state.todos.map((todo:any) => {
 
   render() {
     return(
       <div>
+        <h1>Quests!</h1>
         <div>
-          {this.inputRender}
+          {this.inputRender()}
         </div>
         <div>
           {}
@@ -77,4 +68,4 @@ class TodoMain extends React.Component {
     };
 }
 
-export default TodoMain;
+export default reduxForm({ form:'todoMain' })(TodoMain);
