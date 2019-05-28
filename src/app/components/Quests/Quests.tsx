@@ -2,7 +2,6 @@ import  * as React from 'react';
 const styles = require('../../Scss/main.css');
 import TodoInput from './todoinput';
 import TodoItem from './todoItem';
-import { addTodo } from '../../actions/todos';
 import { connect } from 'react-redux';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { RouteComponentProps } from 'react-router';
@@ -78,4 +77,4 @@ function mapStateToProps (state:StateInterface) {
   }
 }
 
-export default connect(mapStateToProps, { addTodo })(Quests);
+export default connect(mapStateToProps)(Quests);

@@ -1,25 +1,18 @@
-import { ActionTypes } from "./types";
+import { ADD_TODO } from "./types";
 import { Action } from "redux";
 
 let nextTodoId = 0;
 
-export type Actions = AddTodoAction;
-
 export type Todo = { id: number; text: string };
 
-export interface AddTodoAction {
-  type: ActionTypes.ADD_TODO;
-  payload: Todo;
+export interface AddTodo extends Action {
+  (text: string): AddTodo
 }
 
+// export const addTodo = (text: string): AddTodo => {
+//   return {
+//     todo,
+//      type: ADD_TODO,
 
-export const addTodo = (text: string): AddTodoAction => ({
-  type: ActionTypes.ADD_TODO,
-  payload: {
-    id: ++nextTodoId,
-    text: text
-  }
-});
-
-
-export type Action = AddTodoAction;
+//   }
+// };
