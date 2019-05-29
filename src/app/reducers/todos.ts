@@ -1,29 +1,34 @@
-import Todo from '../models/Todo';
-import { Action } from '../actions/todos';
-import { ActionTypes } from '../actions/types';
+import { AddTodo } from './../actions/todos';
+import { ADD_TODO } from '../actions/types';
 
-export type Todos = Todo[];
+interface Todo {
+  id: number,
+  name: string,
+}
+
+// export type Todos = Todo[];
 
 export interface TodoState {
-  todos: Todo[];
+  todos:Todo[];
 }
 
 export const initialState: TodoState = {
-  todos: []
+  todos:[]
 }
 
-// export function reducer(state: TodoState = initialState, action: Action) {
-//   switch (action.type) {
-//       case ActionTypes.ADD_TODO:
-//       return {
-//         ...state,
-//         {
-//           id: action.payload.id,
-//           text: action.payload.text,
-//         }
-//       };
+function todos(state: TodoState = initialState, action: AddTodo) {
+  switch (action.type) {
+    case ADD_TODO:
+    return [
+      ...state,
+      {
+        id: action.payload.id,
+        text: action.payload.text,
+      }
+    ];
+    default:
+      return state;
+  }
+}
 
-//     default:
-//       return state;
-//   }
-// }
+export default todos;

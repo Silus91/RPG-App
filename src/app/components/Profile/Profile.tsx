@@ -27,7 +27,7 @@ class Profile extends React.Component<ProfileInterface, any> {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   onNavigateHome = () => {
     this.props.history.push("/");
   }
@@ -93,7 +93,6 @@ class Profile extends React.Component<ProfileInterface, any> {
           </div>
         </div>
       </div>
-
     );
   }
 }

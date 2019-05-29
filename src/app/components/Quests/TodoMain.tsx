@@ -1,69 +1,57 @@
 import * as React from 'react';
-import { reduxForm, InjectedFormProps } from 'redux-form';
-import TodoItem from './todoItem';
+import { InjectedFormProps } from 'redux-form';
+import { Dispatch } from "redux";
 import { RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
+import { addTodo, AddTodo } from './../../actions/todos';
+// import { Todos } from "./../../reducers/todos";
 
-// import { addTodo } from './../../actions/todos';
-
-// import { connect } from 'react-redux';
-//import { StateInterface } from 'app/reducers';
+import { StateInterface } from 'app/reducers';
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
   addTodo: (text:string) => void;
 }
 
-class TodoMain extends React.Component<TodoMainInterface> {
+export type AddTodoProps = {
+  addTodo: (text: string) => void;
+};
+
+class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   constructor(props:any){
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.removeTodo = this.removeTodo.bind(this);
-
   }
 
-  state = {
-    todos: [
-      { id:1, name:'Questes to be done!' },
-      { id:2, name:'Questes to be done!' },
-      { id:3, name:'Questes to be done!' },
-    ],
+  state = { input: "" };
+
+  //   removeTodo(id:number) {
+  //   this.setState({
+  //     todos: this.state.todos.filter((todo:any) => todo.id !== id),
+  //   });
+  // }
+
+  updateInput = (input: string) => {
+    this.setState({ input });
   };
-  
-  handleChange = (e:any) => {
-    this.setState({
-      ...this.state.todos,
-      [e.target.id]:e.target.value
-    });
-    console.log(e);
-  }
 
-  onSubmit(value:any){
-    const { reset,addTodo } = this.props;
-    console.log(value);
-    addTodo(value);
-    reset();
-  }
+  handleAddTodo = () => {
+    this.props.addTodo(this.state.input);
+    this.setState({ input: "" });
+  };
 
-  removeTodo(id:number) {
-    this.setState({
-      todos: this.state.todos.filter((todo:any) => todo.id !== id),
-    });
-  }
-
-  inputRender(){
-      const { handleSubmit } = this.props;
-
-    return(
-      <form>
-        <input onChange={this.handleChange} type="text"/>
-        <button onClick={handleSubmit(this.onSubmit)}>
-          Submit
+  inputRender() {
+    return (
+      <div>
+        <input
+          onChange={e => this.updateInput(e.target.value)}
+          value={this.state.input}
+        />
+        <button className="add-todo" onClick={this.handleAddTodo}>
+          Add Todo
         </button>
-      </form>
-    )
+      </div>
+    );
   }
-
 
   render() {
     return(
@@ -73,22 +61,29 @@ class TodoMain extends React.Component<TodoMainInterface> {
           {this.inputRender()}
         </div>
         <div>
-        <ul>
-            {this.state.todos.map((todo:any) => {
-              return (
-                <TodoItem
-                  todo={todo}
-                  key={todo.id}
-                  id={todo.id}
-                  removeTodo={this.removeTodo} 
-                />
-              );
-            })}
-          </ul>
+          todosy wyrenderowane
         </div>
       </div>
     );
     };
 }
 
-export default reduxForm({ form:'todoMain' })(TodoMain);
+const mapStateToProps = (state: StateInterface): {} => {
+  return { input: "" };
+};
+
+const mapDispatchToProps = (
+  dispatch: Dispatch<AddTodo>
+): AddTodoProps => {
+  return {
+    addTodo: (s: string) => {
+      dispatch(addTodo(s));
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoMain);
+
