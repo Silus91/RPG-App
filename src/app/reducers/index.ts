@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import * as fromTodos from './todos';
 import profileReducer, { ProfileState } from './profile';
-import { reducer as formReducer, FormReducer } from 'redux-form'
+import { reducer as formReducer, FormReducer } from 'redux-form';
 
 export interface StateInterface {
   todos: fromTodos.TodoState;
@@ -9,7 +9,7 @@ export interface StateInterface {
   form: FormReducer;
 }
 
- export default combineReducers ({
+export default combineReducers ({
   profile: profileReducer,
   form: formReducer
 });
