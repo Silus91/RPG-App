@@ -1,22 +1,20 @@
 import { AddTodo } from './../actions/todos';
 import { ADD_TODO } from '../actions/types';
 
-interface Todo {
-  id: number,
-  name: string,
-}
-
-// export type Todos = Todo[];
 
 export interface TodoState {
-  todos:Todo[];
+  id: number,
+  text: string,
 }
 
-export const initialState: TodoState = {
-  todos:[]
-}
+export const initialState: TodoState = [
+  {
+    id,
+    text
+  }
+]
 
-function todos(state: TodoState = initialState, action: AddTodo) {
+export default function(state: TodoState = initialState, action: AddTodo) {
   switch (action.type) {
     case ADD_TODO:
     return [
@@ -30,5 +28,3 @@ function todos(state: TodoState = initialState, action: AddTodo) {
       return state;
   }
 }
-
-export default todos;

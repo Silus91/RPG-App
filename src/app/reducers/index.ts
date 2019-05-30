@@ -1,15 +1,17 @@
 import { combineReducers } from 'redux';
-import * as fromTodos from './todos';
-import profileReducer, { ProfileState } from './profile';
+import todosReducer, { TodoState} from './todos';
 import { reducer as formReducer, FormReducer } from 'redux-form';
+import profileReducer, { ProfileState } from './profile';
+
 
 export interface StateInterface {
-  todos: fromTodos.TodoState;
+  todos: TodoState;
   profile: ProfileState;
   form: FormReducer;
 }
 
 export default combineReducers ({
   profile: profileReducer,
-  form: formReducer
+  form: formReducer,
+  todos: todosReducer,
 });
