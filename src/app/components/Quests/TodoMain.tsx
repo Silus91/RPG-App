@@ -3,40 +3,40 @@ import { InjectedFormProps } from 'redux-form';
 import { Dispatch } from "redux";
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
-import { addTodo, AddTodo } from './../../actions/todos';
-// import { Todos } from "./../../reducers/todos";
+import { addTodoAction, AddTodo } from './../../actions/todos';
+import TodoItem from './todoItem';
 
 import { StateInterface } from 'app/reducers';
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
-  addTodo: (text:string) => void;
+  addTodoAction: (text:string) => void;
 }
 
 export type AddTodoProps = {
-  addTodo: (text: string) => void;
+  addTodoAction: (text: string) => void;
 };
 
 class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   constructor(props:any){
     super(props);
+    this.removeTodo = this.removeTodo.bind(this);
 
   }
 
   state = { input: "" };
 
-  //   removeTodo(id:number) {
-  //   this.setState({
-  //     todos: this.state.todos.filter((todo:any) => todo.id !== id),
-  //   });
-  // }
+    removeTodo(id:number) {
+    console.log(id);
+  }
 
   updateInput = (input: string) => {
     this.setState({ input });
   };
 
   handleAddTodo = () => {
-    this.props.addTodo(this.state.input);
+    this.props.addTodoAction(this.state.input);
     this.setState({ input: "" });
+    console.log(this.state.input);
   };
 
   inputRender() {
@@ -61,7 +61,18 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
           {this.inputRender()}
         </div>
         <div>
-          todosy wyrenderowane
+        <ul>
+            {this.props.map((todo:any) => {
+              return (
+                <TodoItem
+                  todo={todo}
+                  key={todo.id}
+                  id={todo.id}
+                  removeTodo={this.removeTodo} 
+                />
+              );
+            })}
+          </ul>
         </div>
       </div>
     );
@@ -69,15 +80,15 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 }
 
 const mapStateToProps = (state: StateInterface): {} => {
-  return { input: "" };
+  return { todos: state.todos };
 };
 
 const mapDispatchToProps = (
   dispatch: Dispatch<AddTodo>
 ): AddTodoProps => {
   return {
-    addTodo: (s: string) => {
-      dispatch(addTodo(s));
+    addTodoAction: (s: string) => {
+      dispatch(addTodoAction(s));
     },
   };
 };

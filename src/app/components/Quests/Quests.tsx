@@ -3,7 +3,7 @@ const styles = require('../../Scss/main.css');
 import TodoInput from './todoinput';
 import TodoItem from './todoItem';
 import { connect } from 'react-redux';
-import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import { InjectedFormProps } from 'redux-form';
 import { RouteComponentProps } from 'react-router';
 import { StateInterface } from 'app/reducers';
 

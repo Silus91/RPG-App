@@ -10,7 +10,7 @@ export interface StateInterface {
   form: FormReducer;
 }
 
-export default combineReducers ({
+export const rootReducer = combineReducers ({
   profile: profileReducer,
   form: formReducer,
   todos: todosReducer,

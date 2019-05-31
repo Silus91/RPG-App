@@ -1,4 +1,4 @@
-export default interface Todo {
+export interface Todo {
     id: number,
-    name: string,
+    text: string,
   }

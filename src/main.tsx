@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import combineReducers from './app/reducers/index';
+import { rootReducer } from './app/reducers/index';
 import { createBrowserHistory } from 'history';
 import { Router, Switch, Route } from 'react-router'
 import { Provider } from 'react-redux';
@@ -10,7 +10,7 @@ import TodoMain from './app/components/Quests/TodoMain';
 import Profile from './app/components/Profile/Profile';
 import Home from './app/components/Home/Home';
 
-const store = createStore(combineReducers);
+const store = createStore(rootReducer);
 const history = createBrowserHistory();
 
 ReactDOM.render(
