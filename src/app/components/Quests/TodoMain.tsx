@@ -5,7 +5,6 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { addTodoAction, AddTodo } from './../../actions/todos';
 import TodoItem from './todoItem';
-
 import { StateInterface } from 'app/reducers';
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
@@ -20,7 +19,6 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   constructor(props:any){
     super(props);
     this.removeTodo = this.removeTodo.bind(this);
-
   }
 
   state = { input: "" };
@@ -61,18 +59,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
           {this.inputRender()}
         </div>
         <div>
-        <ul>
-            {this.props.map((todo:any) => {
-              return (
-                <TodoItem
-                  todo={todo}
-                  key={todo.id}
-                  id={todo.id}
-                  removeTodo={this.removeTodo} 
-                />
-              );
-            })}
-          </ul>
+
         </div>
       </div>
     );
