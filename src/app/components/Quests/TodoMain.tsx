@@ -9,6 +9,7 @@ import { StateInterface } from 'app/reducers';
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
   addTodoAction: (text:string) => void;
+  todos: [];
 }
 
 export type AddTodoProps = {
@@ -19,11 +20,13 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   constructor(props:any){
     super(props);
     this.removeTodo = this.removeTodo.bind(this);
+    this.handleAddTodo = this.handleAddTodo.bind(this)
+    this.updateInput = this.updateInput.bind(this)
   }
 
   state = { input: "" };
 
-    removeTodo(id:number) {
+  removeTodo(id:number) {
     console.log(id);
   }
 
@@ -35,6 +38,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
     this.props.addTodoAction(this.state.input);
     this.setState({ input: "" });
     console.log(this.state.input);
+    console.log(this.props.todos);
   };
 
   inputRender() {
@@ -52,6 +56,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   }
 
   render() {
+    // const { todos } = this.props;
     return(
       <div>
         <h1>Quests!</h1>
@@ -59,7 +64,18 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
           {this.inputRender()}
         </div>
         <div>
-
+        <ul>
+            {() => this.props.todos.map((todo:any) => {
+              return (
+                <TodoItem
+                  todo={todo}
+                  key={todo.id}
+                  id={todo.id}
+                  removeTodo={this.removeTodo} 
+                />
+              );
+            })}
+          </ul>
         </div>
       </div>
     );
@@ -69,6 +85,12 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 const mapStateToProps = (state: StateInterface): {} => {
   return { todos: state.todos };
 };
+
+// function mapStateToProps(state: StateInterface) {
+//   return {
+//     todos: state.todos
+//   };
+// }
 
 const mapDispatchToProps = (
   dispatch: Dispatch<AddTodo>

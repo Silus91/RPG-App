@@ -3,7 +3,7 @@ import { Action } from "redux";
 
  let nextTodoId = 0;
 
-export type Actions = AddTodo;
+export type Action = AddTodo;
 
 export type Todo = { id: number; text: string };
 

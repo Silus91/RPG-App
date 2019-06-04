@@ -1,6 +1,8 @@
 import * as React from 'react';
 const styles = require('./todoItem.css');
 
+
+
 class TodoItem extends React.Component<any, any> {
 
   removeTodo(id:number) {
