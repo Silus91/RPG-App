@@ -6,10 +6,12 @@ import { connect } from 'react-redux';
 import { addTodoAction, AddTodo } from './../../actions/todos';
 import TodoItem from './todoItem';
 import { StateInterface } from 'app/reducers';
+import { Todo } from './../../models/Todo';
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
   addTodoAction: (text:string) => void;
-  todos: [];
+  todos: Todo[];
+  todo:Todo;
 }
 
 export type AddTodoProps = {
@@ -37,7 +39,6 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   handleAddTodo = () => {
     this.props.addTodoAction(this.state.input);
     this.setState({ input: "" });
-    console.log(this.state.input);
     console.log(this.props.todos);
   };
 
@@ -64,8 +65,8 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
           {this.inputRender()}
         </div>
         <div>
-        <ul>
-            {() => this.props.todos.map((todo:any) => {
+          <ul>
+            {this.props.todos.map((todo:Todo) => {
               return (
                 <TodoItem
                   todo={todo}
@@ -79,18 +80,12 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
         </div>
       </div>
     );
-    };
+  };
 }
 
 const mapStateToProps = (state: StateInterface): {} => {
   return { todos: state.todos };
 };
-
-// function mapStateToProps(state: StateInterface) {
-//   return {
-//     todos: state.todos
-//   };
-// }
 
 const mapDispatchToProps = (
   dispatch: Dispatch<AddTodo>

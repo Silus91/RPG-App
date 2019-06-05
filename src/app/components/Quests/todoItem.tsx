@@ -1,6 +1,14 @@
 import * as React from 'react';
-const styles = require('./todoItem.css');
+// import { Todo } from './../../models/Todo';
 
+
+// interface TodoItemInterface {
+//   todos:[];
+//   todo:Todo;
+//   id:number;
+//   text: string;
+//   removeTodo: (id:number) => void;
+// }
 
 
 class TodoItem extends React.Component<any, any> {
@@ -11,14 +19,14 @@ class TodoItem extends React.Component<any, any> {
 
   render() {
     return(
-    <div className={styles.todoItem}>
-            <div className={styles.todoiItemParagraph}>
-              {this.props.todo.text}
-            </div>
-        <button className={styles.removeTodoButton} onClick={() => this.removeTodo(this.props.id)}>
+      <li>
+        <div>
+          {this.props.todo.text}
+        </div>
+        <button onClick={() => this.removeTodo(this.props.id)}>
           Remove
         </button>
-    </div>
+    </li>
     );
   }
 }
