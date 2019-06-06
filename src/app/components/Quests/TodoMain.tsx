@@ -57,7 +57,6 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   }
 
   render() {
-    // const { todos } = this.props;
     return(
       <div>
         <h1>Quests!</h1>
@@ -83,8 +82,8 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   };
 }
 
-const mapStateToProps = (state: StateInterface): {} => {
-  return { todos: state.todos };
+const mapStateToProps = (state: StateInterface) => {
+  return { state: state.todos };
 };
 
 const mapDispatchToProps = (
