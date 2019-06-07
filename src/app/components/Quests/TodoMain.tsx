@@ -83,7 +83,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 }
 
 const mapStateToProps = (state: StateInterface) => {
-  return { state: state.todos };
+  return { todos: state.todos.todos };
 };
 
 const mapDispatchToProps = (
