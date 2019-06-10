@@ -1,18 +1,15 @@
 import { ADD_TODO, DELETE_TODO } from "./types";
 import { Action } from "redux";
+import { Todo } from './../models/Todo';
 
- let nextTodoId = 0;
-
-export type Action = AddTodo | DeleteTodo;
-
-export type Todo = { id: number; text: string };
+let nextTodoId = 0;
 
 export interface AddTodo extends Action {
   payload: Todo;
 }
 
 export interface DeleteTodo extends Action {
-  payload: (id:number) => void;
+  payload: {id:number};
 }
 
 export const addTodoAction = (text: string): AddTodo => ({
@@ -23,13 +20,9 @@ export const addTodoAction = (text: string): AddTodo => ({
   }
 });
 
-export const deleteTodoAction = (id: number) =>  ({
+export const deleteTodoAction = (id: number): DeleteTodo =>  ({
   type: DELETE_TODO,
   payload: {
     id
   }
 });
-  
- 
-  
-

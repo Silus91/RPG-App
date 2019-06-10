@@ -14,7 +14,6 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
 }
 
 const SomeInput = (field:any) => {
-  console.log(field);
   return( 
     <div style={field.style}>
       <input {...field.input}/>
@@ -41,7 +40,6 @@ class Profile extends React.Component<ProfileInterface, any> {
 
   handleSubmit(values:any){
     const { reset,changeStat } = this.props;
-    console.log(values);
     changeStat(values);
     reset();
   }

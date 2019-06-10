@@ -3,19 +3,22 @@ import { InjectedFormProps } from 'redux-form';
 import { Dispatch } from "redux";
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
-import { addTodoAction, AddTodo } from './../../actions/todos';
+import { addTodoAction, deleteTodoAction, AddTodo, DeleteTodo } from './../../actions/todos';
 import TodoItem from './todoItem';
 import { StateInterface } from 'app/reducers';
 import { Todo } from './../../models/Todo';
+const styles = require('../../Scss/main.css');
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
   addTodoAction: (text:string) => void;
   todos: Todo[];
   todo:Todo;
+  deleteTodoAction: (id: number) => void;
 }
 
-export type AddTodoProps = {
+export type TodoProps = {
   addTodoAction: (text: string) => void;
+  deleteTodoAction: (id: number) => void;
 };
 
 class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
@@ -28,8 +31,13 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 
   state = { input: "" };
 
+  onNavigateHome = () => {
+    this.props.history.push("/");
+  }
+
   removeTodo(id:number) {
     console.log(id);
+    this.props.deleteTodoAction(id);
   }
 
   updateInput = (input: string) => {
@@ -44,12 +52,12 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 
   inputRender() {
     return (
-      <div>
+      <div className={styles.statContainer}>
         <input
           onChange={e => this.updateInput(e.target.value)}
           value={this.state.input}
         />
-        <button className="add-todo" onClick={this.handleAddTodo}>
+        <button className={styles.button} onClick={this.handleAddTodo}>
           Add Todo
         </button>
       </div>
@@ -58,7 +66,13 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 
   render() {
     return(
-      <div>
+      <div className={styles.container}>
+        <button
+          className={styles.button}
+          onClick={this.onNavigateHome}
+        >
+          Return
+        </button>
         <h1>Quests!</h1>
         <div>
           {this.inputRender()}
@@ -71,7 +85,8 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
                   todo={todo}
                   key={todo.id}
                   id={todo.id}
-                  removeTodo={this.removeTodo} 
+                  text={todo.text}
+                  removeTodo={() => this.removeTodo(todo.id)} 
                 />
               );
             })}
@@ -87,12 +102,14 @@ const mapStateToProps = (state: StateInterface) => {
 };
 
 const mapDispatchToProps = (
-  dispatch: Dispatch<AddTodo>
-): AddTodoProps => {
+  dispatch: Dispatch<AddTodo | DeleteTodo>
+): TodoProps => {
   return {
     addTodoAction: (s: string) => {
       dispatch(addTodoAction(s));
-    },
+    }, deleteTodoAction: (id:number) => {
+      dispatch(deleteTodoAction(id))
+    }
   };
 };
 
