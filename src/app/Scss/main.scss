@@ -8,7 +8,6 @@ $colors: (
     @return map-get($colors, $color-name)
 };
 
-
 @import "button";
 @import "container";
 @import "header";
@@ -16,9 +15,10 @@ $colors: (
 @import "input";
 @import "img";
 
-
 body {
-    background-color: color(primary);
+    background: url("https://images.unsplash.com/photo-1536048810607-3dc7f86981cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1575&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 p {

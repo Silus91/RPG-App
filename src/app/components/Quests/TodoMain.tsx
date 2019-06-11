@@ -67,12 +67,9 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   render() {
     return(
       <div className={styles.container}>
-        <button
-          className={styles.button}
-          onClick={this.onNavigateHome}
-        >
-          Return
-        </button>
+        <div onClick={this.onNavigateHome}>
+          <img  src={require(`./../../../imgs/arrow.png`)} className={styles.return}/>
+        </div>
         <h1>Quests!</h1>
         <div>
           {this.inputRender()}

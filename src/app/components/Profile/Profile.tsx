@@ -51,7 +51,7 @@ class Profile extends React.Component<ProfileInterface, any> {
       <React.Fragment key={index}>
         <div className={styles.statContainer}>
           <label>{stat}</label>
-          <Field name={stat} component={SomeInput} style={{padding:"16 px"}} type="text"/>
+          <Field name={stat} component={SomeInput} placeholder={stat} style={{padding:"16 px"}} type="text"/>
           <button
             className={styles.button}
             onClick={handleSubmit(this.handleSubmit)}
@@ -67,7 +67,7 @@ class Profile extends React.Component<ProfileInterface, any> {
   renderHeaders() {
     return Array.from(profile).map((stat, index) => (
       <div key={index}>
-        {stat}={this.props.profile[stat]}
+        <h2>{stat}={this.props.profile[stat]}</h2>
       </div>
     ));
   }
@@ -75,12 +75,9 @@ class Profile extends React.Component<ProfileInterface, any> {
   render() {
     return (
       <div className={styles.container}>
-        <button
-          className={styles.button}
-          onClick={this.onNavigateHome}
-        >
-          Return
-        </button>
+        <div onClick={this.onNavigateHome}>
+          <img  src={require(`./../../../imgs/arrow.png`)} className={styles.return}/>
+        </div>
         <h1>Profile Stats!</h1>
         <div className={styles.profileContainer}>
           <div className={styles.headersContainer}>

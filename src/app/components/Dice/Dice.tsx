@@ -40,7 +40,9 @@ class Dice extends React.Component<DiceInterface> {
   render () {
     return (
       <div className={styles.container}>
-        <button onClick={this.onNavigateHome} className={styles.button}>Return</button>
+        <div onClick={this.onNavigateHome}>
+          <img  src={require(`./../../../imgs/arrow.png`)} className={styles.return}/>
+        </div>
         <h1>LETS ROLL!</h1>
         <div className={styles.diceContainer}>
           {this.renderDices()}

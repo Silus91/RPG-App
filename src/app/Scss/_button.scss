@@ -1,17 +1,15 @@
 .button {
     border: none;
-    color: black;
+    color: color(black);
     padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     margin: 4px 2px;
-    -webkit-transition-duration: 0.5s;
-    transition-duration: 0.4s;
     cursor: pointer;
 }
 
-.button:hover {
-    background-color: black;
+.button:active {
+    background-color: rgb(221, 31, 31);
     color: white;
 }
