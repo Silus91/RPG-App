@@ -1,5 +1,6 @@
 .button {
     border: none;
+    border-radius: 100%;
     color: color(black);
     padding: 12px 28px;
     text-align: center;
@@ -10,6 +11,6 @@
 }
 
 .button:active {
-    background-color: rgb(221, 31, 31);
+    background-color: rgb(65, 63, 63);
     color: white;
 }
