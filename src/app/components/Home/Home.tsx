@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, BrowserRouter } from 'react-router-dom'
 
 
 const styles = require('../../Scss/main.css');
@@ -8,9 +8,11 @@ const Home = () => {
     <div className={styles.container}>
       <h1> RPG HELPER!</h1>
       <div className={styles.appContainer}>
-        <Link to='/dice'><div className={styles.button}>Dice</div></Link>
-        <Link to={'/todoMain'}><div className={styles.button}>Quests</div></Link>
-        <Link to={'/profile'}><div className={styles.button}>Profile</div></Link>
+        <BrowserRouter>
+          <Link to='/dice'><div className={styles.button}>Dice</div></Link>
+          <a href={'/todoMain'}><div className={styles.button}>Quests</div></a>
+          <Link to={'/profile'}><div className={styles.button}>Profile</div></Link>
+        </BrowserRouter>
       </div>
     </div>
   );
