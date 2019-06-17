@@ -10,7 +10,7 @@ const Home = () => {
       <div className={styles.appContainer}>
         <BrowserRouter>
           <Link to='/dice'><div className={styles.button}>Dice</div></Link>
-          <a href={'/todoMain'}><div className={styles.button}>Quests</div></a>
+          <Link to={'/todoMain'}><div className={styles.button}>Quests</div></Link>
           <Link to={'/profile'}><div className={styles.button}>Profile</div></Link>
         </BrowserRouter>
       </div>

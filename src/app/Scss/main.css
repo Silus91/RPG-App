@@ -1,6 +1,7 @@
 .button {
+  background-color: transparent;
   border: none;
-  border-radius: 100%;
+  border-radius: 75%;
   color: black;
   padding: 12px 28px;
   text-align: center;
@@ -11,8 +12,12 @@
 }
 
 .button:active {
-  background-color: #413f3f;
+  background-color: #4f944f;
   color: white;
+}
+
+.return {
+  cursor: pointer;
 }
 
 .container {
@@ -157,14 +162,20 @@ h2 {
   text-align: center;
 }
 
-li {
-  text-decoration: none;
+h3 {
+  text-transform: capitalize;
 }
 
-.todoInput {
-  border-bottom: 1px solid black;
-  padding: 12px 28px;
-  font-size: 1.5rem;
+ul {
+  text-decoration: none;
+  background: rgba(171, 173, 171, 0.6);
+}
+
+.input {
+  border: none;
+  border-bottom: 2px solid #858181;
+  border-radius: 10px;
+  background-color: transparent;
 }
 
 .img {
@@ -189,6 +200,10 @@ li {
     width: 35px;
     height: 35px;
   }
+}
+
+body, html {
+  height: 100%;
 }
 
 body {

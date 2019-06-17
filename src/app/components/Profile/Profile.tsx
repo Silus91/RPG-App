@@ -16,7 +16,8 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
 const SomeInput = (field:any) => {
   return( 
     <div style={field.style}>
-      <input {...field.input}/>
+      <input
+      className={styles.input} {...field.input}/>
     </div>
 )}
 
@@ -50,8 +51,8 @@ class Profile extends React.Component<ProfileInterface, any> {
     return Array.from(profile).map((stat, index) => (
       <React.Fragment key={index}>
         <div className={styles.statContainer}>
-          <label>{stat}</label>
-          <Field name={stat} component={SomeInput} placeholder={stat} style={{padding:"16 px"}} type="text"/>
+          <h3>{stat}</h3>
+          <Field name={stat} component={SomeInput} type="text"/>
           <button
             className={styles.button}
             onClick={handleSubmit(this.handleSubmit)}
@@ -75,7 +76,10 @@ class Profile extends React.Component<ProfileInterface, any> {
   render() {
     return (
       <div className={styles.container}>
-        <div onClick={this.onNavigateHome}>
+        <div 
+          className={styles.returnButton}
+          onClick={this.onNavigateHome}
+        >
           <img  src={require(`./../../../imgs/arrow.png`)} className={styles.return}/>
         </div>
         <h1>Profile Stats!</h1>

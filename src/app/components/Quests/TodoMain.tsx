@@ -54,11 +54,12 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
     return (
       <div className={styles.statContainer}>
         <input
+          className={styles.input}
           onChange={e => this.updateInput(e.target.value)}
           value={this.state.input}
         />
         <button className={styles.button} onClick={this.handleAddTodo}>
-          Add Todo
+          Add Quest
         </button>
       </div>
     );
@@ -67,7 +68,10 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   render() {
     return(
       <div className={styles.container}>
-        <div onClick={this.onNavigateHome}>
+        <div
+          className={styles.returnButton}
+          onClick={this.onNavigateHome}
+        >
           <img  src={require(`./../../../imgs/arrow.png`)} className={styles.return}/>
         </div>
         <h1>Quests!</h1>
