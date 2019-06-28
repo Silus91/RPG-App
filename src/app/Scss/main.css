@@ -9,6 +9,7 @@
   display: inline-block;
   margin: 4px 3px;
   cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .button:active {
