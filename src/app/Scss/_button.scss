@@ -1,5 +1,5 @@
 .button {
-    background: rgba(171, 173, 170, 0.6);
+    background: rgba(172, 172, 172, 0.6);
     border: none;
     border-radius: 25%;
     color: color(black);
@@ -13,8 +13,9 @@
 }
 
 .button:active {
-    background-color: rgb(79, 148, 79);
-    color: white;
+    background: rgba(180, 180, 180, 0.6);
+    color: black;
+    font-weight: bold;
 }
 
 .return{

@@ -44,11 +44,11 @@
     justify-content:space-evenly;
     flex-direction: row;
     text-transform:uppercase;
+    flex-wrap: wrap;
 }
 
 .statsContainer {
     display: flex;
-    flex-flow: wrap;
     justify-content: space-evenly;
 }
 

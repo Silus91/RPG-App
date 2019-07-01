@@ -1,5 +1,5 @@
 .button {
-  background: rgba(171, 173, 170, 0.6);
+  background: rgba(172, 172, 172, 0.6);
   border: none;
   border-radius: 25%;
   color: black;
@@ -13,8 +13,9 @@
 }
 
 .button:active {
-  background-color: #4f944f;
-  color: white;
+  background: rgba(180, 180, 180, 0.6);
+  color: black;
+  font-weight: bold;
 }
 
 .return {
@@ -121,14 +122,14 @@
       -ms-flex-direction: row;
           flex-direction: row;
   text-transform: uppercase;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .statsContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -170,7 +171,7 @@ h3 {
 
 ul {
   text-decoration: none;
-  background: rgba(171, 173, 170, 0.6);
+  background: rgba(170, 170, 170, 0.6);
 }
 
 .input {
@@ -178,6 +179,7 @@ ul {
   border-bottom: 2px solid #858181;
   border-radius: 10px;
   background-color: transparent;
+  width: 75%;
 }
 
 .img {
