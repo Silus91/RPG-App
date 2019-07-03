@@ -19,7 +19,7 @@ interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
 export type TodoProps = {
   addTodoAction: (text: string) => void;
   deleteTodoAction: (id: number) => void;
-};
+}
 
 class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   constructor(props:any){
