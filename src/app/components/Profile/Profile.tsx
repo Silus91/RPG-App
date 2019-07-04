@@ -13,7 +13,7 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
   changeStat: (stat:{[stat:string]:number}) => void;
 }
 
-const SomeInput = (field:any) => {
+const StylingForInput = (field:any) => {
   return( 
     <div className={field.style}>
       <input
@@ -52,7 +52,7 @@ class Profile extends React.Component<ProfileInterface, any> {
       <React.Fragment key={index}>
         <div className={styles.statContainer}>
           <h3>{stat}</h3>
-          <Field name={stat} component={SomeInput} type="text"/>
+          <Field name={stat} component={StylingForInput} type="text"/>
           <button
             className={styles.button}
             onClick={handleSubmit(this.handleSubmit)}
