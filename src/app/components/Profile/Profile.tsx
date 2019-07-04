@@ -16,8 +16,7 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
 const StylingForInput = (field:any) => {
   return( 
     <div className={field.style}>
-      <input
-      className={styles.input} {...field.input}/>
+      <input className={styles.input} {...field.input}/>
     </div>
 )}
 
