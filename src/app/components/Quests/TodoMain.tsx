@@ -10,9 +10,9 @@ import { Todo } from './../../models/Todo';
 const styles = require('../../Scss/main.css');
 
 interface TodoMainInterface extends RouteComponentProps, InjectedFormProps {
-  addTodoAction: (text:string) => void;
   todos: Todo[];
   todo:Todo;
+  addTodoAction: (text:string) => void;
   deleteTodoAction: (id: number) => void;
 }
 
@@ -42,13 +42,13 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 
   updateInput = (input: string) => {
     this.setState({ input });
-  };
+  }
 
   handleAddTodo = () => {
     this.props.addTodoAction(this.state.input);
     this.setState({ input: "" });
     console.log(this.props.todos);
-  };
+  }
 
   inputRender() {
     return (
@@ -100,7 +100,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 
 const mapStateToProps = (state: StateInterface) => {
   return { todos: state.todos.todos };
-};
+}
 
 const mapDispatchToProps = (
   dispatch: Dispatch<AddTodo | DeleteTodo>
@@ -111,11 +111,8 @@ const mapDispatchToProps = (
     }, deleteTodoAction: (id:number) => {
       dispatch(deleteTodoAction(id))
     }
-  };
-};
+  }
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoMain);
+export default connect(mapStateToProps,mapDispatchToProps) (TodoMain);
 
