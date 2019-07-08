@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 
 const styles = require('../../Scss/main.css');
+
 const Home = () => {
   return (
     <div className={styles.container}>
