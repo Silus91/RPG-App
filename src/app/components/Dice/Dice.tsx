@@ -29,7 +29,7 @@ class Dice extends React.Component<DiceInterface> {
           <img  src={require(`./DiceD${dice}.png`)} className={styles.img}/>
         </div>
         <h2>{this.state[dice] || 0}</h2>
-    </div>
+      </div>
     ));
   }
 
