@@ -9,7 +9,7 @@ interface TodoItemInterface {
   removeTodo: (id:number) => void;
 }
 
-class TodoItem extends React.Component<TodoItemInterface, any> {
+class TodoItem extends React.Component<TodoItemInterface> {
 
   removeTodo(id:number) {
     this.props.removeTodo(id);
