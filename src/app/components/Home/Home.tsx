@@ -8,9 +8,9 @@ const Home = () => {
     <div className={styles.container}>
       <h1> RPG HELPER!</h1>
       <div className={styles.appContainer}>
-          <Link to='/dice'><div className={styles.button}>Dice</div></Link>
-          <Link to={'/todoMain'}><div className={styles.button}>Quests</div></Link>
-          <Link to={'/profile'}><div className={styles.button}>Profile</div></Link>
+        <Link to='/dice'><div className={styles.button}>Dice</div></Link>
+        <Link to={'/todoMain'}><div className={styles.button}>Quests</div></Link>
+        <Link to={'/profile'}><div className={styles.button}>Profile</div></Link>
       </div>
     </div>
   );
