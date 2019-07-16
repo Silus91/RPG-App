@@ -36,7 +36,6 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   }
 
   removeTodo(id:number) {
-    console.log(id);
     this.props.deleteTodoAction(id);
   }
 
@@ -47,7 +46,6 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   handleAddTodo = () => {
     this.props.addTodoAction(this.state.input);
     this.setState({ input: "" });
-    console.log(this.props.todos);
   }
 
   inputRender() {
