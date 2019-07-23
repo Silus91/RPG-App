@@ -96,6 +96,15 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
   };
 }
 
+// function validate(values:any) {
+//   const errors:any = {};
+
+//   if (!values.email) {
+//     errors.email = 'Username cannot be empty';
+//   }
+//   return errors;
+// }
+
 const mapStateToProps = (state: StateInterface) => {
   return { todos: state.todos.todos };
 }
