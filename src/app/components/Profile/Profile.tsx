@@ -4,8 +4,8 @@ import { StateInterface } from 'app/reducers';
 import { RouteComponentProps } from 'react-router';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { changeStat } from '../../actions';
-const styles = require('../../Scss/main.css');
 
+const styles = require('../../Scss/main.css');
 const profile = new Set<string>(['hp', 'exp', 'gold']);
 
 interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
