@@ -99,8 +99,8 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
 // function validate(values:any) {
 //   const errors:any = {};
 
-//   if (!values.email) {
-//     errors.email = 'Username cannot be empty';
+//   if (!values.input) {
+//     errors.input = 'Input cant be empty';
 //   }
 //   return errors;
 // }
