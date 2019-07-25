@@ -95,6 +95,16 @@ class Profile extends React.Component<ProfileInterface, any> {
   }
 }
 
+// function validate(values:any) {
+//   const errors:any = {};
+
+//   if (!values.input) {
+//     errors.input = 'Input cant be empty';
+//   }
+//   return errors;
+// }
+
+
 function mapStateToProps(state:StateInterface){
   return {
     profile: state.profile
