@@ -4,6 +4,7 @@ import { StateInterface } from 'app/reducers';
 import { RouteComponentProps } from 'react-router';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { changeStat } from '../../actions';
+// import { input } from './../../models/Input';
 
 const styles = require('../../Scss/main.css');
 const profile = new Set<string>(['hp', 'exp', 'gold']);
@@ -13,12 +14,29 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
   changeStat: (stat:{[stat:string]:number}) => void;
 }
 
-const StylingForInput = (field:any) => {
-  return( 
-    <div className={field.style}>
-      <input className={styles.input} {...field.input}/>
+// const StylingForInput = (field:any) => {
+//   return( 
+//     <div className={field.style}>
+//       <input className={styles.input} {...field.input}/>
+//     </div>
+// )}
+
+function renderField(field:any) {
+  const { meta: { touched, error } } = field;
+  // const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+  return (
+    <div>
+      <input 
+        className={styles.input}
+        type="text"
+        {...field.input}
+      />
+      <div>
+        {touched ? error : ''}
+      </div>
     </div>
-)}
+  )
+}
 
 class Profile extends React.Component<ProfileInterface, any> {
   constructor(props:any) {
@@ -51,7 +69,7 @@ class Profile extends React.Component<ProfileInterface, any> {
       <React.Fragment key={index}>
         <div className={styles.statContainer}>
           <h3>{stat}</h3>
-          <Field name={stat} component={StylingForInput} type="text"/>
+          <Field name={stat} component={renderField} type="text"/>
           <button
             className={styles.button}
             onClick={handleSubmit(this.handleSubmit)}
@@ -95,14 +113,14 @@ class Profile extends React.Component<ProfileInterface, any> {
   }
 }
 
-// function validate(values:any) {
-//   const errors:any = {};
+function validate(values:any) {
+  const errors:any = {};
 
-//   if (!values.input) {
-//     errors.input = 'Input cant be empty';
-//   }
-//   return errors;
-// }
+  if (!values.input) {
+    errors.input = 'Input cant be empty';
+  }
+  return errors;
+}
 
 
 function mapStateToProps(state:StateInterface){
@@ -111,4 +129,4 @@ function mapStateToProps(state:StateInterface){
   }
 }
 
-export default reduxForm<any,any> ({form:'profileForm'}) (connect (mapStateToProps, {changeStat}) (Profile));
+export default reduxForm<any,any> ({validate, form:'profileForm'}) (connect (mapStateToProps, {changeStat}) (Profile));

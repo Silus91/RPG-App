@@ -77,7 +77,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
           {this.inputRender()}
         </div>
         <div>
-          <ul>
+          <ul >
             {this.props.todos.map((todo:Todo) => {
               return (
                 <TodoItem
