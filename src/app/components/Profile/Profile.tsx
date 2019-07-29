@@ -14,18 +14,11 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
   changeStat: (stat:{[stat:string]:number}) => void;
 }
 
-// const StylingForInput = (field:any) => {
-//   return( 
-//     <div className={field.style}>
-//       <input className={styles.input} {...field.input}/>
-//     </div>
-// )}
-
 function renderField(field:any) {
   const { meta: { touched, error } } = field;
-  // const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+  const className = `form-group ${touched && error ? 'has-danger' : ''}`;
   return (
-    <div>
+    <div className={className}>
       <input 
         className={styles.input}
         type="text"
