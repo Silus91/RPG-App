@@ -7,7 +7,7 @@ import { changeStat } from '../../actions';
 // import { input } from './../../models/Input';
 
 const styles = require('../../Scss/main.css');
-const profile = new Set<string>(['hp', 'exp', 'gold']);
+const profile = new Set<string>(['hp', 'exp', 'gold', 'mana']);
 
 interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
   profile: {[key:string]:number};
