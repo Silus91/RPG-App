@@ -8,7 +8,6 @@ export interface FieldInterface {
   meta: any;
   label?:string;
   stock?:number;
-  searchText?:string;
   submit?:any;
   inputValue?:string;
   options?:any;
