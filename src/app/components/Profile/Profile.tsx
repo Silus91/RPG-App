@@ -16,7 +16,7 @@ interface ProfileInterface extends RouteComponentProps, InjectedFormProps {
 
 function renderField(field:any) {
   const { meta: { touched, error } } = field;
-  // const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+  const className = `form-group ${touched && error ? 'has-danger' : ''}`;
   return (
     <div>
       <input 
