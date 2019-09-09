@@ -12,6 +12,8 @@ const Home = () => {
         <Link to='/dice'><div className={styles.button}>Dice</div></Link>
         <Link to={'/todoMain'}><div className={styles.button}>Quests</div></Link>
         <Link to={'/profile'}><div className={styles.button}>Profile</div></Link>
+        <Link to={'/burger'}><div className={styles.button}>Burger</div></Link>
+
       </div>
     </div>
   );
