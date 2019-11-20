@@ -57,7 +57,7 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
           value={this.state.input}
         />
         <button className={styles.button} onClick={this.handleAddTodo}>
-          Add Quest
+          Add Quest!
         </button>
       </div>
     );
@@ -95,15 +95,6 @@ class TodoMain extends React.Component<TodoMainInterface, { input: string }> {
     );
   };
 }
-
-// function validate(values:any) {
-//   const errors:any = {};
-
-//   if (!values.input) {
-//     errors.input = 'Input cant be empty';
-//   }
-//   return errors;
-// }
 
 const mapStateToProps = (state: StateInterface) => {
   return { todos: state.todos.todos };
