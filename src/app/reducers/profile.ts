@@ -17,7 +17,7 @@ export default function(state = initialState, action:ChangeStat) {
   switch(action.type){
     case CHANGE_STAT:
      return { ...state, ...action.stat }
-      default: 
+    default: 
       return state
   }
 }
