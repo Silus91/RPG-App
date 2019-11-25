@@ -67,15 +67,3 @@
   .hamburger__inner::after {
     top: 10px;
   }
-  
-  .hamburger--active .hamburger__inner {
-    background-color: transparent;
-  }
-  
-  .hamburger--active .hamburger__inner:before {
-    transform: translateY(10px) rotate(45deg);
-  }
-  
-  .hamburger--active .hamburger__inner:after {
-    transform: translateY(-10px) rotate(-45deg);
-  }
