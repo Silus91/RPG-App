@@ -59,11 +59,3 @@
     left: 0;
     transition: transform .2s .2s ease-in-out;
   } 
-  
-  .hamburger__inner::before {
-    top: -10px;
-  }
-  
-  .hamburger__inner::after {
-    top: 10px;
-  }
