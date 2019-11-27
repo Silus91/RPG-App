@@ -1,21 +1,2 @@
   
   *, *::before, *::after {
-    box-sizing: inherit;
-  }
-  
-  $dark: #171717;
-  $light: #FFFFFF;
-  
-  body {
-    background-color: $dark;
-    padding: 20px;
-  }
-  
-  .hamburger {
-    padding: 10px;
-    display: inline-block;
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-  }
