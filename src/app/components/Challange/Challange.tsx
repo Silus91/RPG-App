@@ -61,10 +61,6 @@ class Challange extends React.Component<DiceInterface> {
     );
   }
 
-  // onNavigateHome = () => {
-  //   this.props.history.push("/");
-  // }
-
   render () {
     return (
       <div className={styles.container}>
