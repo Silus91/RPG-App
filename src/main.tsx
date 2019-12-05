@@ -17,10 +17,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/dice" component={Dice} />
-        <Route exact path="/todoMain" component={TodoMain} />
-        <Route exact path="/challange" component={Challange} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/dice" component={Dice} />
+        <Route path="/todoMain" component={TodoMain} />
+        <Route path="/challange" component={Challange} />
         <Route exact path="/" component={Home} />
       </Switch>
     </Router>
