@@ -42,7 +42,7 @@ class Challange extends React.Component<DiceInterface> {
       return <h1>Draw!</h1>
     }
     if (dice > enemy) {
-      return <h1>You won!</h1>
+      return <h1>You Won!</h1>
     } else {
       return <h1>You Lost!</h1>
     }
