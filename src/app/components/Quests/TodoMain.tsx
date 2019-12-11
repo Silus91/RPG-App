@@ -4,7 +4,7 @@ import { Dispatch } from "redux";
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { addTodoAction, deleteTodoAction, AddTodo, DeleteTodo } from './../../actions/todos';
-import TodoItem from './todoItem';
+import TodoItem from './TodoItem';
 import { StateInterface } from 'app/reducers';
 import { Todo } from './../../models/Todo';
 const styles = require('../../Scss/main.css');

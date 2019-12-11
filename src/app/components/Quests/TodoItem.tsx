@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Todo } from './../../models/Todo';
+import { Todo } from '../../models/Todo';
 const styles = require('../../Scss/main.css');
 
 interface TodoItemInterface {
