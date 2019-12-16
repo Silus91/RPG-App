@@ -90,7 +90,10 @@ class Profile extends React.Component<ProfileInterface, any> {
           className={styles.returnButton}
           onClick={this.onNavigateHome}
         >
-          <img  src={require(`./../../../imgs/arrow.png`)} className={styles.return}/>
+          <img
+             src={require(`./../../../imgs/arrow.png`)}
+             className={styles.return}
+          />
         </div>
         <h1>Profile Stats!</h1>
         <div className={styles.profileContainer}>
