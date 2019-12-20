@@ -1,5 +1,5 @@
 {
-  "name": "Rpg-Helper",
+  "name": "rpg-helper",
   "version": "1.0.0",
   "description": "Rpg-Helper app with React Typescript",
   "keywords": [
@@ -67,7 +67,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
-    "redux-actions": "^2.6.4",
+    "redux-actions": "^2.6.5",
     "redux-form": "^8.2.0"
   }
 }
