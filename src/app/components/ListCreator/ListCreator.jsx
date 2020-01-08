@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class ListCreator extends Component {
+class ListCreator extends Component {
   render() {
     return (
       <div>
