@@ -6,7 +6,7 @@ class ListCreator extends Component {
   render() {
     return (
       <div>
-        
+        <button>Add new List</button>
       </div>
     )
   }
