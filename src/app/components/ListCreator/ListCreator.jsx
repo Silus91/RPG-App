@@ -7,6 +7,9 @@ class ListCreator extends Component {
     return (
       <div>
         <button>Add new List</button>
+        <div>
+          {/* dodac todo appa oraz liste */}
+        </div>
       </div>
     )
   }
