@@ -9,7 +9,10 @@ class ListCreator extends Component {
       <div>
         <button>Add new List</button>
         <div>
-          dodac todo appa oraz liste
+          <TodoMain />
+        </div>
+        <div>
+          <TodoMain />
         </div>
       </div>
     )
