@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import TodoMain from '../Quests/TodoMain';
 
 class ListCreator extends Component {
 
@@ -8,7 +9,7 @@ class ListCreator extends Component {
       <div>
         <button>Add new List</button>
         <div>
-          {/* dodac todo appa oraz liste */}
+          dodac todo appa oraz liste
         </div>
       </div>
     )
