@@ -10,6 +10,7 @@ import Profile from './app/components/Profile/Profile';
 import Home from './app/components/Home/Home';
 import Challange from './app/components/Challange/Challange';
 
+
 const store = createStore(rootReducer);
 
 ReactDOM.render(
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Route path="/dice" component={Dice} />
         <Route path="/todoMain" component={TodoMain} />
         <Route path="/challange" component={Challange} />
+        <Route path="/list" component={ListCreator} />
         <Route exact path="/" component={Home} />
       </Switch>
     </BrowserRouter>
