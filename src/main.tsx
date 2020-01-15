@@ -9,7 +9,7 @@ import TodoMain from './app/components/Quests/TodoMain';
 import Profile from './app/components/Profile/Profile';
 import Home from './app/components/Home/Home';
 import Challange from './app/components/Challange/Challange';
-
+import ListCreator from './app/components/ListCreator/ListCreator';
 
 const store = createStore(rootReducer);
 
