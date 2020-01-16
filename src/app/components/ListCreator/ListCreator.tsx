@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TodoMain from '../Quests/TodoMain';
 
 class ListCreator extends Component {
 
@@ -9,10 +8,8 @@ class ListCreator extends Component {
       <div>
         <button>Add new List</button>
         <div>
-          <TodoMain />
         </div>
         <div>
-          <TodoMain />
         </div>
       </div>
     )
